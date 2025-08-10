@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYZ - Acessórios</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #121212;
+    color: #eee;
+    font-family: 'Arial Black', Arial, sans-serif;
+    line-height: 1.5;
+  }
+  a {
+    color: #005bbb;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background-color: #000;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #005bbb; /* azul carteiro */
+  }
+  .logo svg text {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 2;
+  }
+  .logo svg {
+    height: 40px;
+  }
+  .search-bar {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 30px;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 40px;
+    border: none;
+    background-color: #222;
+    color: #eee;
+    transition: background-color 0.3s ease;
+  }
+  .search-bar input::placeholder {
+    color: #888;
+  }
+  .search-bar input:focus {
+    outline: none;
+    background-color: #333;
+  }
+  .icons {
+    font-size: 22px;
+    color: #eee;
+    cursor: pointer;
+  }
+  /* Navegação categorias */
+  .categories {
+    display: flex;
+    overflow-x: auto;
+    background-color: #000;
+    padding: 12px 25px;
+    gap: 20px;
+    border-bottom: 3px solid #005bbb;
+  }
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+  .category {
+    flex: 0 0 auto;
+    padding: 10px 22px;
+    background-color: #222;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #eee;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .category:hover, .category.active {
+    background-color: #005bbb;
+    color: #fff;
+  }
+  /* Produtos grid estilo Casas Bahia + calcados.html */
+  main.products {
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 28px;
+  }
+  article.product {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 91, 187, 0.4);
+    display: flex;
+    flex-direction: column;
+    color: #eee;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  article.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 91, 187, 0.8);
+  }
+  article.product img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background-color: #111;
+    transition: transform 0.4s ease;
+  }
+  article.product:hover img {
+    transform: scale(1.08);
+  }
+  .product-info {
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .product-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #005bbb;
+  }
+  .product-description {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+  .product-price {
+    font-size: 26px;
+    font-weight: 900;
+    color: #005bbb;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .discount {
+    background-color: #ff3939;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    user-select: none;
+  }
+  .buy-btn {
+    align-self: center;
+    background-color: #005bbb;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 40px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  .buy-btn:hover {
+    background-color: #003f8a;
+  }
+  /* Para posicionar o desconto dentro do card */
+  .product-card-wrapper {
+    position: relative;
+  }
+  /* Responsivo */
+  @media (max-width: 768px) {
+    main.products {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 15px 60px;
+    }
+    article.product img {
+      height: 220px;
+    }
+    .product-title {
+      font-size: 18px;
+    }
+    .product-price {
+      font-size: 22px;
+    }
+    .buy-btn {
+      font-size: 16px;
+      padding: 14px 28px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo VYZ">
+      <text x="0" y="35" font-family="Impact, sans-serif" font-size="40" fill="#fff" stroke="#000" stroke-width="2">VYZ</text>
+    </svg>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar acessórios..." />
+  </div>
+  <div class="icons">
+    🛒
+    👤
+  </div>
+</header>
+
+<div class="categories">
+  <div class="category active">Óculos</div>
+  <div class="category">Relógios</div>
+  <div class="category">Bolsas</div>
+  <div class="category">Bijuterias</div>
+  <div class="category">Chapéus</div>
+</div>
+
+<main class="products">
+
+  <div class="product-card-wrapper">
+    <article class="product" tabindex="0">
+      <img src="https://via.placeholder.com/400x280?text=%C3%93culos+Estilosos" alt="Óculos Estilosos" />
+      <div class="product-info">
+        <div class="product-title">Óculos Estilosos</div>
+        <div class="product-description">Óculos de sol com lente polarizada e armação leve.</div>
+        <div class="product-price">R$ 199,90</div>
+        <button class="buy-btn">Comprar agora</button>
+      </div>
+      <div class="discount">15% OFF</div>
+    </article>
+  </div>
+
+  <div class="product-card-wrapper">
+    <article class="product" tabindex="0">
+      <img src="https://via.placeholder.com/400x280?text=Rel%C3%B3gio+Cl%C3%A1ssico" alt="Relógio Clássico" />
+      <div class="product-info">
+        <div class="product-title">Relógio Clássico</div>
+        <div class="product-description">Relógio analógico com pulseira em couro legítimo.</div>
+        <div class="product-price">R$ 299,90</div>
+        <button class="buy-btn">Comprar agora</button>
+      </div>
+      <div class="discount">10% OFF</div>
+    </article>
+  </div>
+
+  <div class="product-card-wrapper">
+    <article class="product" tabindex="0">
+      <img src="https://via.placeholder.com/400x280?text=Bolsa+Casual" alt="Bolsa Casual" />
+      <div class="product-info">
+        <div class="product-title">Bolsa Casual</div>
+        <div class="product-description">Bolsa resistente, ideal para uso diário e trabalho.</div>
+        <div class="product-price">R$ 149,90</div>
+        <button class="buy-btn">Comprar agora</button>
+      </div>
+      <div class="discount">20% OFF</div>
+    </article>
+  </div>
+
+  <div class="product-card-wrapper">
+    <article class="product" tabindex="0">
+      <img src="https://via.placeholder.com/400x280?text=Bijuterias+Fashion" alt="Bijuterias Fashion" />
+      <div class="product-info">
+        <div class="product-title">Bijuterias Fashion</div>
+        <div class="product-description">Conjunto de colares e pulseiras delicados.</div>
+        <div class="product-price">R$ 89,90</div>
+        <button class="buy-btn">Comprar agora</button>
+      </div>
+      <div class="discount">25% OFF</div>
+    </article>
+  </div>
+
+  <div class="product-card-wrapper">
+    <article class="product" tabindex="0">
+      <img src="https://via.placeholder.com/400x280?text=Chapeu+Moderno" alt="Chapéu Moderno" />
+      <div class="product-info">
+        <div class="product-title">Chapéu Moderno</div>
+        <div class="product-description">Chapéu estiloso para completar seu look.</div>
+        <div class="product-price">R$ 79,90</div>
+        <button class="buy-btn">Comprar agora</button>
+      </div>
+      <div class="discount">18% OFF</div>
+    </article>
+  </div>
+
+</main>
+
+</body>
+</html>
