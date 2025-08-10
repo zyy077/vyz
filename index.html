@@ -65,12 +65,7 @@
     cursor: pointer;
     transition: 0.3s;
     white-space: nowrap;
-    color: #eee;
   }
-  .category:hover {
-    background-color: #444;
-  }
-  /* Link categoria */
   .category a {
     color: #eee;
     font-weight: 600;
@@ -117,6 +112,157 @@
     font-size: 18px;
     font-weight: bold;
   }
+  /* Produto detalhado */
+  .product-detailed {
+    max-width: 960px;
+    margin: 40px auto 60px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    color: #eee;
+  }
+  .product-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .product-image {
+    flex: 1 1 320px;
+  }
+  .product-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .product-info-detailed {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-title-detailed {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .product-sales {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 12px;
+  }
+  .product-rating {
+    margin-bottom: 12px;
+  }
+  .stars {
+    color: #f5c518; /* amarelo das estrelas */
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  .rating-score {
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  .rating-count {
+    margin-left: 6px;
+    font-size: 14px;
+    color: #aaa;
+    vertical-align: middle;
+  }
+  .favorites {
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #3483fa;
+    font-weight: 600;
+  }
+  .price-section {
+    margin-bottom: 20px;
+  }
+  .price-current {
+    font-size: 32px;
+    font-weight: 700;
+    color: #3483fa;
+  }
+  .price-old {
+    font-size: 20px;
+    text-decoration: line-through;
+    color: #aaa;
+    margin-left: 10px;
+  }
+  .price-discount {
+    font-size: 18px;
+    color: #f44336;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .installments {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #eee;
+  }
+  .payment-info {
+    margin-top: 15px;
+    background-color: #292929;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #ccc;
+  }
+  .coupon {
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #1a1a1a;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #4caf50;
+    font-weight: 600;
+  }
+  .color-option {
+    margin-top: 20px;
+  }
+  .color-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .color-swatch {
+    display: inline-block;
+    background-color: #000;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid #555;
+    cursor: pointer;
+  }
+  .buy-btn {
+    margin-top: 25px;
+    background-color: #3483fa;
+    color: white;
+    border: none;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .buy-btn:hover {
+    background-color: #2968c8;
+  }
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .product-detailed {
+      margin: 20px 15px 40px;
+    }
+    .product-header {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .product-info-detailed {
+      flex: none;
+    }
+  }
 </style>
 </head>
 <body>
@@ -162,6 +308,56 @@
     </div>
   </div>
 </div>
+
+<section class="product-detailed">
+  <div class="product-header">
+    <div class="product-image">
+      <img src="https://via.placeholder.com/450x350?text=Kit+Interface+Mesa+V8%2B+Microfone+BM800" alt="Kit Interface Mesa V8+ Microfone BM800" />
+    </div>
+    <div class="product-info-detailed">
+      <div class="product-title-detailed">Kit Interface Mesa V8+ Microfone BM800 Com Braço Articulado Preto</div>
+      <div class="product-sales">Novo | +100 vendidos</div>
+      <div class="product-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-score">4.8</span>
+        <span class="rating-count">(26 opiniões)</span>
+      </div>
+      <div class="favorites">Adicionar aos favoritos</div>
+
+      <div class="price-section">
+        <span class="price-current">R$ 205,89</span>
+        <span class="price-old">R$ 249,99</span>
+        <span class="price-discount">17% OFF</span>
+        <div class="installments">12x R$ 20,28</div>
+      </div>
+
+      <div class="payment-info">
+        Ver os meios de pagamento
+        <div class="coupon">Cupom R$5 OFF. Compra mínima R$99.</div>
+      </div>
+
+      <div class="color-option">
+        <label class="color-label">Cor: Preto</label>
+        <div class="color-swatch" title="Preto"></div>
+      </div>
+
+      <a href="#" class="buy-btn">Comprar agora</a>
+    </div>
+  </div>
+
+  <section class="description-section" style="margin-top:40px; background:#292929; padding:20px; border-radius:8px; color:#ccc; font-size:16px;">
+    <h2 style="margin-bottom:15px; color:#eee;">O que você precisa saber sobre este produto</h2>
+    <ul style="list-style: disc inside; line-height: 1.6;">
+      <li>É recomendado para gravação.</li>
+      <li>É sem fio.</li>
+      <li>Formato: de contato.</li>
+      <li>Cabo de 2m.</li>
+      <li>Frequência máxima: 20Hz.</li>
+      <li>Frequência mínima: 20Hz.</li>
+      <li>Ver características</li>
+    </ul>
+  </section>
+</section>
 
 </body>
 </html>
