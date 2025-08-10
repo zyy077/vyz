@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYZ - Roupas</title>
+<style>
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  a {
+    color: #3483fa;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background-color: #000;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    border-bottom: 1px solid #222;
+  }
+  .logo svg text {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 2;
+  }
+  .logo svg {
+    height: 42px;
+  }
+  .search-bar {
+    flex: 1;
+    max-width: 480px;
+    margin: 0 25px;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    background-color: #222;
+    color: #eee;
+    transition: background-color 0.3s;
+  }
+  .search-bar input::placeholder {
+    color: #aaa;
+  }
+  .search-bar input:focus {
+    outline: none;
+    background-color: #333;
+  }
+  .icons {
+    font-size: 22px;
+    cursor: pointer;
+    color: #fff;
+  }
+  /* Categorias */
+  .categories {
+    display: flex;
+    overflow-x: auto;
+    background-color: #000;
+    padding: 12px 20px;
+    gap: 18px;
+    border-bottom: 1px solid #222;
+  }
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+  .category {
+    flex: 0 0 auto;
+    padding: 9px 18px;
+    background-color: #222;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    color: #ddd;
+    user-select: none;
+  }
+  .category:hover, .category.active {
+    background-color: #3483fa;
+    color: #fff;
+  }
+  /* Produtos grid */
+  main.products {
+    max-width: 1100px;
+    margin: 30px auto 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
+  }
+  article.product {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    color: #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  article.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(52,131,250,0.7);
+  }
+  article.product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    transition: transform 0.3s ease;
+  }
+  article.product:hover img {
+    transform: scale(1.05);
+  }
+  .product-info {
+    padding: 15px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .product-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .product-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #3483fa;
+    margin-bottom: 12px;
+  }
+  .buy-btn {
+    margin-top: auto;
+    background-color: #3483fa;
+    border: none;
+    padding: 14px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+  }
+  .buy-btn:hover {
+    background-color: #2968c8;
+  }
+  /* Responsivo */
+  @media (max-width: 768px) {
+    main.products {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 18px;
+      margin: 20px auto 40px;
+    }
+    article.product img {
+      height: 220px;
+    }
+    .product-title {
+      font-size: 16px;
+    }
+    .product-price {
+      font-size: 18px;
+    }
+    .buy-btn {
+      font-size: 16px;
+      padding: 12px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo VYZ">
+      <text x="0" y="35" font-family="Impact, sans-serif" font-size="40" fill="#fff" stroke="#000" stroke-width="2">VYZ</text>
+    </svg>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar roupas..." />
+  </div>
+  <div class="icons">
+    🛒
+    👤
+  </div>
+</header>
+
+<div class="categories">
+  <div class="category active">Masculino</div>
+  <div class="category">Feminino</div>
+  <div class="category">Infantil</div>
+  <div class="category">Esporte</div>
+  <div class="category">Casual</div>
+  <div class="category">Social</div>
+</div>
+
+<main class="products">
+  <article class="product" tabindex="0">
+    <img src="https://via.placeholder.com/400x300?text=Camiseta+Preta" alt="Camiseta Preta" />
+    <div class="product-info">
+      <div class="product-title">Camiseta Preta Básica</div>
+      <div class="product-price">R$ 59,90</div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://via.placeholder.com/400x300?text=Jaqueta+Jeans" alt="Jaqueta Jeans" />
+    <div class="product-info">
+      <div class="product-title">Jaqueta Jeans Masculina</div>
+      <div class="product-price">R$ 149,90</div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://via.placeholder.com/400x300?text=Cal%C3%A7a+Jeans" alt="Calça Jeans" />
+    <div class="product-info">
+      <div class="product-title">Calça Jeans Skinny</div>
+      <div class="product-price">R$ 119,90</div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://via.placeholder.com/400x300?text=Vestido+Floral" alt="Vestido Floral" />
+    <div class="product-info">
+      <div class="product-title">Vestido Floral Feminino</div>
+      <div class="product-price">R$ 129,90</div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://via.placeholder.com/400x300?text=T%C3%AAnis+Esportivo" alt="Tênis Esportivo" />
+    <div class="product-info">
+      <div class="product-title">Tênis Esportivo Casual</div>
+      <div class="product-price">R$ 199,90</div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+</main>
+
+</body>
+</html>
