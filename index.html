@@ -17,15 +17,20 @@
         }
         /* Header */
         header {
-            background-color: #ffe600;
+            background-color: #000000; /* preto */
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
+            color: #ffffff;
         }
         .logo {
             display: flex;
             align-items: center;
+        }
+        .logo svg text {
+            fill: #fff; /* branco para destacar no preto */
+            stroke: #000; /* contorno preto */
         }
         .logo svg {
             height: 40px;
@@ -49,14 +54,16 @@
             gap: 15px;
             font-size: 20px;
             cursor: pointer;
+            color: #fff;
         }
         /* Categorias */
         .categories {
             display: flex;
             overflow-x: auto;
-            background-color: white;
+            background-color: #000; /* preto */
             padding: 10px;
             gap: 15px;
+            color: #fff;
         }
         .categories::-webkit-scrollbar {
             display: none;
@@ -64,14 +71,15 @@
         .category {
             flex: 0 0 auto;
             padding: 8px 15px;
-            background-color: #eee;
+            background-color: #222;
             border-radius: 20px;
             cursor: pointer;
             transition: 0.3s;
             white-space: nowrap;
+            color: #eee;
         }
         .category:hover {
-            background-color: #ddd;
+            background-color: #444;
         }
         /* Produtos */
         .products {
@@ -129,7 +137,7 @@
 <header>
     <div class="logo">
         <svg viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo VYZ">
-            <text x="0" y="35" font-family="Impact, sans-serif" font-size="40" fill="#000" stroke="#fff" stroke-width="2">VYZ</text>
+            <text x="0" y="35" font-family="Impact, sans-serif" font-size="40" fill="#fff" stroke="#000" stroke-width="2">VYZ</text>
         </svg>
     </div>
     <div class="search-bar">
