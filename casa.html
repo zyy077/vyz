@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VYZ - Casa e Construção</title>
+<title>VYZ - Casa e Construção (Tema Escuro)</title>
 <style>
   /* Reset */
   * {
@@ -11,12 +11,12 @@
   }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9f9;
-    color: #222;
+    background-color: #121214;
+    color: #ddd;
     line-height: 1.6;
   }
   a {
-    color: #2f7c31;
+    color: #4caf50;
     text-decoration: none;
   }
   a:hover {
@@ -26,18 +26,18 @@
   header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: #2f7c31;
+    background: #1b1d1f;
     padding: 15px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.8);
   }
   header .logo {
     font-weight: 900;
     font-size: 32px;
-    color: #fff;
+    color: #4caf50;
     font-family: 'Impact', sans-serif;
     user-select: none;
   }
@@ -48,15 +48,15 @@
   header nav a {
     font-weight: 700;
     font-size: 16px;
-    color: #d4e7d3;
+    color: #8bc34a;
     padding: 8px 10px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
   }
   header nav a:hover,
   header nav a.active {
-    background-color: #61a34b;
-    color: #fff;
+    background-color: #4caf50;
+    color: #121214;
   }
   /* Busca */
   .search-bar {
@@ -69,12 +69,17 @@
     padding: 14px 20px;
     font-size: 18px;
     border-radius: 50px;
-    border: 2px solid #2f7c31;
+    border: 2px solid #4caf50;
+    background-color: #1b1d1f;
+    color: #ddd;
     outline: none;
     transition: border-color 0.3s ease;
   }
+  .search-bar input[type="search"]::placeholder {
+    color: #aaa;
+  }
   .search-bar input[type="search"]:focus {
-    border-color: #61a34b;
+    border-color: #8bc34a;
   }
   /* Conteúdo principal */
   main {
@@ -90,34 +95,35 @@
   }
   section.featured article {
     flex: 1;
-    background: white;
+    background: #1b1d1f;
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.8);
     overflow: hidden;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
   }
   section.featured article:hover {
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+    box-shadow: 0 10px 30px #4caf50aa;
   }
   section.featured img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     display: block;
+    filter: brightness(0.9);
   }
   section.featured .content {
     padding: 20px 25px;
   }
   section.featured .content h2 {
     font-size: 22px;
-    color: #2f7c31;
+    color: #4caf50;
     margin-bottom: 12px;
     font-weight: 900;
   }
   section.featured .content p {
     font-size: 16px;
-    color: #555;
+    color: #aaa;
   }
   /* Notícias & Dicas */
   section.news {
@@ -125,7 +131,7 @@
   }
   section.news h3 {
     font-size: 24px;
-    color: #2f7c31;
+    color: #4caf50;
     margin-bottom: 25px;
     font-weight: 900;
   }
@@ -135,43 +141,44 @@
     gap: 28px;
   }
   article.news-item {
-    background: white;
+    background: #1b1d1f;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgb(0 0 0 / 0.08);
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.7);
     overflow: hidden;
     transition: box-shadow 0.3s ease;
     cursor: pointer;
   }
   article.news-item:hover {
-    box-shadow: 0 8px 25px rgb(0 0 0 / 0.16);
+    box-shadow: 0 8px 25px #4caf50bb;
   }
   article.news-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
     display: block;
+    filter: brightness(0.9);
   }
   article.news-item .news-content {
     padding: 18px 22px;
   }
   article.news-item .news-content h4 {
     font-size: 18px;
-    color: #2f7c31;
+    color: #4caf50;
     margin-bottom: 8px;
     font-weight: 700;
   }
   article.news-item .news-content p {
     font-size: 14px;
-    color: #666;
+    color: #bbb;
     line-height: 1.4;
   }
   /* Rodapé simples */
   footer {
     text-align: center;
     padding: 20px;
-    color: #aaa;
+    color: #666;
     font-size: 14px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #222;
   }
   /* Responsivo */
   @media (max-width: 900px) {
