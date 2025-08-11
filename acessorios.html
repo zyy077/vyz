@@ -1,118 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VYZ Music - Loja</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #111;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3em;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #fff;
-        }
-        nav {
-            background-color: #222;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .produtos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-        .produto {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            width: 300px;
-            margin: 15px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-        }
-        .produto img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        .preco {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 10px 0;
-            color: #0af;
-        }
-        .botao {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .botao:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>VYZ Music</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="eletronicos.html">Eletrônicos</a>
-        <a href="roupas.html">Roupas</a>
-        <a href="calcados.html">Calçados</a>
-        <a href="acessorios.html">Acessórios</a>
-        <a href="casa.html">Casa</a>
-        <a href="esportes.html">Esportes</a>
-        <a href="beleza.html">Beleza</a>
-    </nav>
-
-    <section class="produtos">
-        
-        <!-- Produto 1 -->
-        <div class="produto">
-            <img src="produto1.jpg" alt="Kit Interface Mesa V8+ Microfone Bm800">
-            <h2>Kit Interface Mesa V8+ Microfone Bm800</h2>
-            <p>Novo | +100 vendidos</p>
-            <p class="preco">R$ 205,89 <span style="text-decoration: line-through; color: gray;">R$ 249,99</span></p>
-            <a class="botao" href="#">Comprar</a>
+<section class="products">
+    <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Fone Bluetooth">
+        <div class="card-content">
+            <h3>Fone Bluetooth Pro</h3>
+            <div class="price">R$ 199,90</div>
+            <a href="#" class="buy-btn">Comprar</a>
         </div>
-
-        <!-- Produto 2 -->
-        <div class="produto">
-            <img src="produto2.jpg" alt="Fala Pessoas">
-            <h2>Fala Pessoas</h2>
-            <p>Produto exclusivo</p>
-            <p class="preco">R$ 199,90</p>
-            <a class="botao" href="#">Comprar</a>
+    </div>
+    
+    <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Microfone Sem Fio De Mão Dinâmico Profissional Karaokê Bar Preto">
+        <div class="card-content">
+            <h3>Microfone Sem Fio De Mão Dinâmico Profissional Karaokê Bar Preto</h3>
+            <p><strong>Novo | +10 mil vendidos</strong></p>
+            <p>Avaliação 4.6 de 5 (2.278 opiniões)</p>
+            <p><em>É recomendado para bares. Inclui 2 microfones. É sem fio.</em></p>
+            <div class="price">R$ 230,90</div>
+            <a href="#" class="buy-btn">Comprar</a>
         </div>
-
-    </section>
-
-</body>
+    </div>
+    
+    <div class="card">
+        <img src="https://via.placeholder.com/300x180" alt="Smartwatch X Pro">
+        <div class="card-content">
+            <h3>Smartwatch X Pro</h3>
+            <div class="price">R$ 299,90</div>
+            <a href="#" class="buy-btn">Comprar</a>
+        </div>
+    </div>
+</section>
 </html>
