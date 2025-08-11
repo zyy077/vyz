@@ -3,175 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acessórios</title>
+    <title>Vyz Music</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
         }
-
         header {
             background-color: #111;
-            padding: 15px 20px;
+            padding: 15px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        nav {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #00aaff;
+            justify-content: center;
+            background-color: #222;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #00aaff;
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
         }
-
-        header .icons {
-            font-size: 1.4em;
+        nav a:hover {
+            background-color: #444;
         }
-
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
             padding: 20px;
         }
-
-        .card {
-            background-color: #141414;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 12px rgba(0, 170, 255, 0.2);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 15px;
-        }
-
-        .card-content h3 {
-            margin: 0 0 10px;
-            font-size: 1.1em;
-            color: #00aaff;
-        }
-
-        .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .buy-btn {
-            display: inline-block;
-            background-color: #00aaff;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s ease;
-        }
-
-        .buy-btn:hover {
-            background-color: #0088cc;
-        }
-
-        /* Player de música fixo no rodapé */
-        .music-player {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+        .product {
             background-color: #111;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 2px solid #00aaff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
         }
-
-        .music-player img {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
+        .product:hover {
+            transform: scale(1.05);
         }
-
-        .music-info {
-            flex: 1;
+        .product img {
+            width: 100%;
         }
-
-        .music-info h4 {
+        .product-info {
+            padding: 10px;
+        }
+        .product-info h3 {
             margin: 0;
-            font-size: 1em;
-            color: #00aaff;
+            font-size: 1.2em;
         }
-
-        .music-info p {
-            margin: 2px 0 0;
+        .product-info p {
             font-size: 0.9em;
-            color: #aaa;
+            color: #ccc;
+        }
+        .price {
+            font-size: 1.3em;
+            color: #1db954; /* verde Spotify */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <header>🎶 Vyz Music 🎶</header>
 
-    <header>
-        <h1>🎵 Acessórios</h1>
-        <div class="icons">🛒</div>
-    </header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="eletronicos.html">Eletrônicos</a>
+        <a href="roupas.html">Roupas</a>
+        <a href="calcados.html">Calçados</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="casa.html">Casa</a>
+        <a href="esportes.html">Esportes</a>
+        <a href="beleza.html">Beleza</a>
+    </nav>
 
-    <section class="products">
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180" alt="Fone Bluetooth">
-            <div class="card-content">
-                <h3>Fone Bluetooth Pro</h3>
-                <div class="price">R$ 199,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="Produto">
+            <div class="product-info">
+                <h3>Kit Interface Mesa V8+ Microfone BM800</h3>
+                <p>Com braço articulado, ideal para gravação.</p>
+                <div class="price">R$ 205,89</div>
             </div>
         </div>
-        
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180" alt="Caixa de Som Portátil">
-            <div class="card-content">
-                <h3>Caixa de Som Portátil</h3>
-                <div class="price">R$ 149,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="Produto">
+            <div class="product-info">
+                <h3>Headset Gamer HyperX</h3>
+                <p>Som imersivo e microfone de alta qualidade.</p>
+                <div class="price">R$ 399,90</div>
             </div>
         </div>
-        
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180" alt="Smartwatch X Pro">
-            <div class="card-content">
-                <h3>Smartwatch X Pro</h3>
-                <div class="price">R$ 299,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="Produto">
+            <div class="product-info">
+                <h3>Violão Elétrico Yamaha</h3>
+                <p>Som perfeito para palco e estúdio.</p>
+                <div class="price">R$ 1.299,00</div>
             </div>
         </div>
-    </section>
-
-    <div class="music-player">
-        <img src="https://via.placeholder.com/50" alt="Capa Música">
-        <div class="music-info">
-            <h4>Lo-Fi Beats</h4>
-            <p>VYZ Music</p>
-        </div>
-        <audio controls>
-            <source src="musica.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
     </div>
-
 </body>
 </html>
