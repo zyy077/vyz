@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza - VYZ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #fffafc;
+            color: #333;
+        }
+        header {
+            background-color: #f8d7e0;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        nav {
+            background-color: #ffe6ef;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #d6336c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        .produto {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .produto:hover {
+            transform: scale(1.02);
+        }
+        .produto img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px 0 0 15px;
+        }
+        .info {
+            padding: 20px;
+            flex: 1;
+        }
+        .info h2 {
+            margin-top: 0;
+            color: #d6336c;
+        }
+        .preco {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #28a745;
+        }
+        .botao {
+            background-color: #ff7aa2;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .botao:hover {
+            background-color: #ff5e8c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        💄 Beleza - VYZ
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="beleza.html">Beleza</a>
+        <a href="roupas.html">Roupas</a>
+        <a href="calcados.html">Calçados</a>
+        <a href="acessorios.html">Acessórios</a>
+    </nav>
+    <div class="container">
+        
+        <div class="produto">
+            <img src="https://via.placeholder.com/300x300?text=Perfume" alt="Perfume Floral">
+            <div class="info">
+                <h2>Perfume Floral 100ml</h2>
+                <p>Fragrância suave e marcante, perfeita para o dia a dia e ocasiões especiais.</p>
+                <div class="preco">R$ 129,90</div>
+                <a class="botao" href="#">Comprar Agora</a>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="https://via.placeholder.com/300x300?text=Creme" alt="Creme Hidratante">
+            <div class="info">
+                <h2>Creme Hidratante Corporal</h2>
+                <p>Hidratação profunda para deixar sua pele macia e saudável.</p>
+                <div class="preco">R$ 39,90</div>
+                <a class="botao" href="#">Comprar Agora</a>
+            </div>
+        </div>
+
+        <div class="produto">
+            <img src="https://via.placeholder.com/300x300?text=Maquiagem" alt="Kit Maquiagem">
+            <div class="info">
+                <h2>Kit Maquiagem Completo</h2>
+                <p>Todos os itens essenciais para realçar a sua beleza.</p>
+                <div class="preco">R$ 199,90</div>
+                <a class="botao" href="#">Comprar Agora</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
