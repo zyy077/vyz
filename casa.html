@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYZ - Casa e Construção</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9f9;
+    color: #222;
+    line-height: 1.6;
+  }
+  a {
+    color: #2f7c31;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Header fixo */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #2f7c31;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+  }
+  header .logo {
+    font-weight: 900;
+    font-size: 32px;
+    color: #fff;
+    font-family: 'Impact', sans-serif;
+    user-select: none;
+  }
+  header nav {
+    display: flex;
+    gap: 28px;
+  }
+  header nav a {
+    font-weight: 700;
+    font-size: 16px;
+    color: #d4e7d3;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  header nav a:hover,
+  header nav a.active {
+    background-color: #61a34b;
+    color: #fff;
+  }
+  /* Busca */
+  .search-bar {
+    margin: 100px auto 30px;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  .search-bar input[type="search"] {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 18px;
+    border-radius: 50px;
+    border: 2px solid #2f7c31;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  .search-bar input[type="search"]:focus {
+    border-color: #61a34b;
+  }
+  /* Conteúdo principal */
+  main {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 0 20px 40px;
+  }
+  /* Seção de destaque */
+  section.featured {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  section.featured article {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  section.featured article:hover {
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+  }
+  section.featured img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  section.featured .content {
+    padding: 20px 25px;
+  }
+  section.featured .content h2 {
+    font-size: 22px;
+    color: #2f7c31;
+    margin-bottom: 12px;
+    font-weight: 900;
+  }
+  section.featured .content p {
+    font-size: 16px;
+    color: #555;
+  }
+  /* Notícias & Dicas */
+  section.news {
+    margin-top: 20px;
+  }
+  section.news h3 {
+    font-size: 24px;
+    color: #2f7c31;
+    margin-bottom: 25px;
+    font-weight: 900;
+  }
+  .news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+    gap: 28px;
+  }
+  article.news-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  article.news-item:hover {
+    box-shadow: 0 8px 25px rgb(0 0 0 / 0.16);
+  }
+  article.news-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  article.news-item .news-content {
+    padding: 18px 22px;
+  }
+  article.news-item .news-content h4 {
+    font-size: 18px;
+    color: #2f7c31;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  article.news-item .news-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+  }
+  /* Rodapé simples */
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+  }
+  /* Responsivo */
+  @media (max-width: 900px) {
+    section.featured {
+      flex-direction: column;
+    }
+    section.featured article {
+      margin-bottom: 20px;
+    }
+    section.news .news-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">VYZ</div>
+  <nav>
+    <a href="#" class="active">Casa</a>
+    <a href="#">Construção</a>
+    <a href="#">Decoração</a>
+    <a href="#">Jardinagem</a>
+    <a href="#">Ferramentas</a>
+  </nav>
+</header>
+
+<div class="search-bar">
+  <input type="search" placeholder="Buscar produtos e dicas para casa..." aria-label="Buscar produtos e dicas para casa" />
+</div>
+
+<main>
+  <section class="featured" aria-label="Destaques">
+    <article tabindex="0">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Sala de estar moderna" />
+      <div class="content">
+        <h2>Como transformar sua sala de estar</h2>
+        <p>Dicas práticas para renovar a decoração com pouco investimento.</p>
+      </div>
+    </article>
+    <article tabindex="0">
+      <img src="https://images.unsplash.com/photo-1598300052201-ec0867b9ae6c?auto=format&fit=crop&w=800&q=80" alt="Jardim com plantas" />
+      <div class="content">
+        <h2>Jardinagem para iniciantes</h2>
+        <p>Guia essencial para quem quer começar a cuidar do seu jardim.</p>
+      </div>
+    </article>
+    <article tabindex="0">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Ferramentas para construção" />
+      <div class="content">
+        <h2>Ferramentas indispensáveis para construção</h2>
+        <p>Conheça os melhores equipamentos para facilitar o seu trabalho.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="news" aria-label="Notícias e dicas">
+    <h3>Dicas recentes</h3>
+    <div class="news-list">
+
+      <article class="news-item" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=70" alt="Pintura de parede" />
+        <div class="news-content">
+          <h4>Escolhendo a tinta ideal para parede</h4>
+          <p>Saiba como escolher a melhor tinta para diferentes ambientes e acabamentos.</p>
+        </div>
+      </article>
+
+      <article class="news-item" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=70" alt="Iluminação residencial" />
+        <div class="news-content">
+          <h4>Dicas de iluminação para sua casa</h4>
+          <p>Iluminação correta valoriza o ambiente e economiza energia.</p>
+        </div>
+      </article>
+
+      <article class="news-item" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=70" alt="Organização de cozinha" />
+        <div class="news-content">
+          <h4>Organização prática para cozinha pequena</h4>
+          <p>Otimize espaço com soluções inteligentes e funcionais.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 VYZ - Todos os direitos reservados
+</footer>
+
+</body>
+</html>
