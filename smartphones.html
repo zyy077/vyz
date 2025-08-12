@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VYZ Music - Smartphones</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+  :root {
+    --blue-electric: #1fb6ff;
+    --dark-bg: #0d1117;
+    --dark-card: #161b22;
+    --text-light: #c9d1d9;
+    --text-bright: #f0f6fc;
+    --accent-green: #21bf73;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: linear-gradient(90deg, var(--blue-electric), #005f99);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(31, 182, 255, 0.4);
+  }
+
+  header .logo {
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--text-bright);
+    letter-spacing: 0.15em;
+    user-select: none;
+  }
+
+  .search-bar {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 30px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+  }
+  .search-bar input::placeholder {
+    color: var(--text-light);
+  }
+  .search-bar input:focus {
+    box-shadow: 0 0 12px var(--blue-electric);
+    background-color: var(--dark-card);
+    color: var(--text-bright);
+  }
+
+  .icons {
+    font-size: 24px;
+    color: var(--text-bright);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .categories {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px 30px;
+    background-color: var(--dark-card);
+    gap: 20px;
+    scrollbar-width: none;
+  }
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category {
+    flex: 0 0 auto;
+    padding: 10px 25px;
+    border-radius: 40px;
+    background-color: transparent;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: inset 0 0 0 2px var(--blue-electric);
+  }
+
+  .category:hover,
+  .category.active {
+    background-color: var(--blue-electric);
+    color: var(--dark-bg);
+    box-shadow: none;
+  }
+
+  main.products {
+    max-width: 1200px;
+    margin: 30px auto 60px;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 28px;
+  }
+
+  article.product {
+    background-color: var(--dark-card);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(31, 182, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  article.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(31, 182, 255, 0.5);
+  }
+
+  .product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 6px var(--blue-electric));
+    transition: filter 0.3s ease;
+  }
+  article.product:hover img {
+    filter: drop-shadow(0 0 12px var(--blue-electric));
+  }
+
+  .product-info {
+    padding: 20px 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .product-description {
+    font-size: 14px;
+    color: var(--text-light);
+    flex-grow: 1;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .product-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue-electric);
+  }
+
+  .product-old-price {
+    font-size: 16px;
+    color: #777;
+    text-decoration: line-through;
+  }
+
+  .discount {
+    font-size: 14px;
+    color: #f44336;
+    font-weight: 700;
+    background-color: #33000022;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .rating {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #f5c518;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rating span {
+    font-weight: 600;
+    color: var(--text-bright);
+  }
+
+  .buy-btn {
+    margin-top: 20px;
+    background: var(--blue-electric);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--dark-bg);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+  }
+  .buy-btn:hover {
+    background: #0a9ce5;
+  }
+
+  @media (max-width: 768px) {
+    main.products {
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      padding: 0 15px;
+      gap: 20px;
+    }
+    .product img {
+      height: 140px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">VYZ</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar smartphones..." />
+  </div>
+  <div class="icons">🛒 👤</div>
+</header>
+
+<div class="categories">
+  <a href="smartphones.html" class="category active">Smartphones</a>
+  <a href="fones.html" class="category">Fones de Ouvido</a>
+  <a href="computadores.html" class="category">Computadores</a>
+  <a href="cameras.html" class="category">Câmeras</a>
+  <a href="acessorios.html" class="category">Acessórios</a>
+  <a href="tvs.html" class="category">TVs</a>
+  <a href="smartwatches.html" class="category">Smartwatches</a>
+</div>
+
+<main class="products">
+  <article class="product" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="Smartphone Alpha" />
+    <div class="product-info">
+      <div class="product-title">Smartphone Alpha</div>
+      <p class="product-description">Tela AMOLED 6.7", câmera tripla 108MP, bateria 4500mAh.</p>
+      <div class="price-row">
+        <div class="product-price">R$ 3.999,00</div>
+        <div class="product-old-price">R$ 4.399,00</div>
+        <div class="discount">9% OFF</div>
+      </div>
+      <div class="rating">★★★★★ <span>4.9 (480)</span></div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1510557880182-3f8b400116aa?auto=format&fit=crop&w=600&q=80" alt="Smartphone Beta" />
+    <div class="product-info">
+      <div class="product-title">Smartphone Beta</div>
+      <p class="product-description">Tela LCD 6.5", processador Octa-core, 128GB de armazenamento.</p>
+      <div class="price-row">
+        <div class="product-price">R$ 2.299,00</div>
+        <div class="product-old-price">R$ 2.799,00</div>
+        <div class="discount">18% OFF</div>
+      </div>
+      <div class="rating">★★★★☆ <span>4.3 (210)</span></div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+
+  <article class="product" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Smartphone Gamma" />
+    <div class="product-info">
+      <div class="product-title">Smartphone Gamma</div>
+      <p class="product-description">Tela OLED 6.1", câmera dupla, resistência à água IP68.</p>
+      <div class="price-row">
+        <div class="product-price">R$ 3.499,00</div>
+        <div class="product-old-price">R$ 3.899,00</div>
+        <div class="discount">10% OFF</div>
+      </div>
+      <div class="rating">★★★★☆ <span>4.6 (310)</span></div>
+      <button class="buy-btn">Comprar agora</button>
+    </div>
+  </article>
+</main>
+
+</body>
+</html>
