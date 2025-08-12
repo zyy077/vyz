@@ -1,122 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Acessórios - VYZ Music</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYZ Music - Loja</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #fff;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
         }
         header {
             background-color: #111;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #00aaff;
+            padding: 20px;
+            text-align: center;
         }
         header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #00aaff;
-        }
-        header .icons {
-            font-size: 1.4em;
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #fff;
         }
         nav {
-            background-color: #111;
-            padding: 10px 20px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
+            background-color: #222;
+            padding: 10px;
+            text-align: center;
         }
         nav a {
-            color: #00aaff;
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
+            font-weight: bold;
         }
-        nav a:hover {
-            background-color: #005f99;
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-            gap: 20px;
+        .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             padding: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
         }
-        .card {
-            background-color: #141414;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 12px rgba(0, 170, 255, 0.2);
-            transition: transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card-content {
+        .produto {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            width: 300px;
+            margin: 15px;
             padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card-content h3 {
-            margin: 0 0 10px;
-            font-size: 1.15em;
-            color: #00aaff;
-        }
-        .card-content p {
-            margin: 4px 0;
-            font-size: 0.9em;
-            color: #ccc;
-        }
-        .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 12px 0 10px;
-            color: #00aaff;
-        }
-        .buy-btn {
-            background-color: #00aaff;
-            color: #fff;
-            padding: 12px;
-            border-radius: 8px;
             text-align: center;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            user-select: none;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
         }
-        .buy-btn:hover {
-            background-color: #0088cc;
+        .produto img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .preco {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #0af;
+        }
+        .botao {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .botao:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>🎵 Acessórios</h1>
-        <div class="icons">🛒</div>
+        <h1>VYZ Music</h1>
     </header>
+
     <nav>
         <a href="index.html">Início</a>
         <a href="eletronicos.html">Eletrônicos</a>
@@ -127,36 +91,28 @@
         <a href="esportes.html">Esportes</a>
         <a href="beleza.html">Beleza</a>
     </nav>
-    <section class="products">
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180?text=Fone+Bluetooth+Pro" alt="Fone Bluetooth Pro" />
-            <div class="card-content">
-                <h3>Fone Bluetooth Pro</h3>
-                <div class="price">R$ 199,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
-            </div>
+
+    <section class="produtos">
+        
+        <!-- Produto 1 -->
+        <div class="produto">
+            <img src="produto1.jpg" alt="Kit Interface Mesa V8+ Microfone Bm800">
+            <h2>Kit Interface Mesa V8+ Microfone Bm800</h2>
+            <p>Novo | +100 vendidos</p>
+            <p class="preco">R$ 205,89 <span style="text-decoration: line-through; color: gray;">R$ 249,99</span></p>
+            <a class="botao" href="#">Comprar</a>
         </div>
 
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180?text=Microfone+Sem+Fio" alt="Microfone Sem Fio De Mão Dinâmico Profissional Karaokê Bar Preto" />
-            <div class="card-content">
-                <h3>Microfone Sem Fio De Mão Dinâmico Profissional Karaokê Bar Preto</h3>
-                <p><strong>Novo | +10 mil vendidos</strong></p>
-                <p>Avaliação 4.6 de 5 (2.278 opiniões)</p>
-                <p>É recomendado para bares. Inclui 2 microfones. É sem fio.</p>
-                <div class="price">R$ 230,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
-            </div>
+        <!-- Produto 2 -->
+        <div class="produto">
+            <img src="produto2.jpg" alt="Fala Pessoas">
+            <h2>Fala Pessoas</h2>
+            <p>Produto exclusivo</p>
+            <p class="preco">R$ 199,90</p>
+            <a class="botao" href="#">Comprar</a>
         </div>
 
-        <div class="card">
-            <img src="https://via.placeholder.com/300x180?text=Smartwatch+X+Pro" alt="Smartwatch X Pro" />
-            <div class="card-content">
-                <h3>Smartwatch X Pro</h3>
-                <div class="price">R$ 299,90</div>
-                <a href="#" class="buy-btn">Comprar</a>
-            </div>
-        </div>
     </section>
+
 </body>
 </html>
