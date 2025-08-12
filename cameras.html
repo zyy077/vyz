@@ -5,137 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VYZ - Câmeras</title>
 <style>
-  * {margin:0;padding:0;box-sizing:border-box;}
-  body {background-color:#121212;color:#eee;font-family:Arial,sans-serif;line-height:1.5;}
-  a {color:#3483fa;text-decoration:none;} a:hover{text-decoration:underline;}
-  header {background-color:#000;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;color:#fff;}
-  .logo svg text {fill:#fff;stroke:#000;stroke-width:2;}
-  .logo svg {height:40px;}
-  .icons {font-size:20px;cursor:pointer;color:#fff;}
-  .categories {
-    display:flex;
-    overflow-x:auto;
-    background-color:#000;
-    padding:10px;
-    gap:15px;
-    color:#fff;
-    margin-bottom:20px;
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
   }
-  .categories::-webkit-scrollbar {display:none;}
-  .category {
-    flex:0 0 auto;
-    padding:8px 15px;
-    background-color:#222;
-    border-radius:20px;
-    cursor:pointer;
-    transition:0.3s;
-    white-space:nowrap;
+  header {
+    background-color: #161b22;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #58a6ff;
+    box-shadow: 0 2px 8px rgba(88, 166, 255, 0.2);
   }
-  .category:hover {
-    background-color:#444;
+  .logo svg text {
+    fill: #58a6ff;
+    font-weight: 900;
+    font-size: 36px;
+    stroke: none;
   }
-  .category.active {
-    background-color:#3483fa;
-    color:#fff;
-    font-weight:bold;
+  .search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: #0d1117;
+  }
+  .icons {
+    font-size: 24px;
+    cursor: pointer;
+    color: #58a6ff;
+    user-select: none;
+  }
+  nav.categories {
+    display: flex;
+    overflow-x: auto;
+    background-color: #161b22;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  nav.categories::-webkit-scrollbar {
+    height: 6px;
+  }
+  nav.categories::-webkit-scrollbar-thumb {
+    background: #58a6ff;
+    border-radius: 3px;
+  }
+  nav.categories a {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    background-color: #21262d;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #8b949e;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  nav.categories a:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+  }
+  nav.categories a.active {
+    background-color: #58a6ff;
+    color: #0d1117;
     cursor: default;
   }
-  .products {
-    max-width:1200px;
-    margin:0 auto 40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:20px;
+  main.products {
+    max-width: 1200px;
+    margin: 30px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+    gap: 24px;
+    padding: 0 20px;
   }
-  .product {
-    background-color:#1e1e1e;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 2px 6px rgba(0,0,0,0.8);
-    display:flex;
-    flex-direction:column;
-    color:#eee;
-    transition:0.3s;
-    cursor:pointer;
+  article.product {
+    background-color: #161b22;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(88, 166, 255, 0.15);
+    color: #c9d1d9;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
   }
-  .product:hover {
-    transform:scale(1.03);
-    box-shadow:0 8px 20px rgba(52,131,250,0.7);
+  article.product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(88, 166, 255, 0.4);
   }
-  .product img {
-    width:100%;
-    height:180px;
-    object-fit:contain;
-    background-color:#000;
+  article.product img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 2px solid #58a6ff;
   }
-  .product-info {
-    padding:15px;
-    flex-grow:1;
-    display:flex;
-    flex-direction:column;
+  div.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
-  .product-title {
-    font-size:16px;
-    margin-bottom:8px;
-    flex-grow:1;
+  div.product-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    color: #58a6ff;
   }
-  .product-price {
-    font-size:20px;
-    font-weight:700;
-    color:#3483fa;
+  div.price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
-  .product-old-price {
-    font-size:14px;
-    color:#aaa;
-    text-decoration:line-through;
-    margin-left:10px;
+  div.product-price {
+    font-size: 22px;
+    font-weight: 900;
+    color: #58a6ff;
   }
-  .discount {
-    margin-left:auto;
-    background-color:#f44336;
-    color:white;
-    font-size:13px;
-    font-weight:700;
-    padding:2px 6px;
-    border-radius:4px;
+  div.product-old-price {
+    font-size: 16px;
+    color: #8b949e;
+    text-decoration: line-through;
   }
-  .rating {
-    margin-top:10px;
-    font-size:14px;
-    color:#f5c518;
-    display:flex;
-    align-items:center;
-    gap:6px;
+  div.discount {
+    margin-left: auto;
+    background-color: #f85149;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 12px;
   }
-  .rating span {
-    color:#eee;
-    font-weight:600;
-    font-size:13px;
+  div.rating {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #f9d71c;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .buy-btn {
-    margin-top:15px;
-    background-color:#3483fa;
-    border:none;
-    padding:10px 0;
-    font-size:16px;
-    font-weight:700;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-    transition:background-color 0.3s;
-    text-align:center;
-    text-decoration:none;
+  div.rating span {
+    color: #c9d1d9;
+    font-weight: 700;
+    font-size: 13px;
   }
-  .buy-btn:hover {
-    background-color:#2968c8;
+  button.buy-btn {
+    margin-top: auto;
+    background-color: #238636;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
-  @media (max-width:768px) {
-    .products {
-      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-      gap:15px;
+  button.buy-btn:hover {
+    background-color: #2ea043;
+  }
+  /* Responsivo */
+  @media (max-width: 768px) {
+    main.products {
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      gap: 16px;
+      margin: 20px auto 40px;
     }
-    .product img {
-      height:140px;
+    article.product img {
+      height: 140px;
     }
   }
 </style>
@@ -148,42 +191,42 @@
       <text x="0" y="35" font-family="Impact, sans-serif" font-size="40">VYZ</text>
     </svg>
   </div>
-  <div class="search-bar" style="flex:1; max-width:500px; margin:0 20px;">
-    <input type="text" placeholder="Buscar câmeras..." style="width:100%; padding:8px 12px; border:none; border-radius:4px; font-size:16px;" />
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar câmeras..." />
   </div>
   <div class="icons">🛒 👤</div>
 </header>
 
-<div class="categories">
-  <a class="category" href="smartphones.html">Smartphones</a>
-  <a class="category" href="fones.html">Fones de Ouvido</a>
-  <a class="category" href="eletronicos.html">Eletrônicos</a>
-  <a class="category active" href="cameras.html">Câmeras</a>
-  <a class="category" href="acessorios.html">Acessórios</a>
-  <a class="category" href="tvs.html">TVs</a>
-  <a class="category" href="smartwatches.html">Smartwatches</a>
-</div>
+<nav class="categories">
+  <a href="smartphones.html">Smartphones</a>
+  <a href="fones.html">Fones de Ouvido</a>
+  <a href="computadores.html">Computadores</a>
+  <a href="cameras.html" class="active">Câmeras</a>
+  <a href="acessorios.html">Acessórios</a>
+  <a href="tvs.html">TVs</a>
+  <a href="smartwatches.html">Smartwatches</a>
+</nav>
 
 <main class="products">
   <article class="product" tabindex="0">
-    <img src="https://via.placeholder.com/300x180?text=Câmera+DSLR" alt="Câmera DSLR" />
+    <img src="https://via.placeholder.com/300x160?text=Câmera+DSLR" alt="Câmera DSLR" />
     <div class="product-info">
       <div class="product-title">Câmera DSLR 24MP com Lente 18-55mm</div>
-      <div style="display:flex; align-items:center;">
+      <div class="price-row">
         <div class="product-price">R$ 2.399,00</div>
         <div class="product-old-price">R$ 2.699,00</div>
         <div class="discount">11% OFF</div>
       </div>
-      <div class="rating">★★★★☆ <span>4.5 (78)</span></div>
+      <div class="rating">★★★★★ <span>4.5 (78)</span></div>
       <button class="buy-btn">Comprar agora</button>
     </div>
   </article>
 
   <article class="product" tabindex="0">
-    <img src="https://via.placeholder.com/300x180?text=Câmera+Mirrorless" alt="Câmera Mirrorless" />
+    <img src="https://via.placeholder.com/300x160?text=Câmera+Mirrorless" alt="Câmera Mirrorless" />
     <div class="product-info">
       <div class="product-title">Câmera Mirrorless 20MP Full HD</div>
-      <div style="display:flex; align-items:center;">
+      <div class="price-row">
         <div class="product-price">R$ 3.199,00</div>
         <div class="product-old-price">R$ 3.599,00</div>
         <div class="discount">11% OFF</div>
@@ -194,10 +237,10 @@
   </article>
 
   <article class="product" tabindex="0">
-    <img src="https://via.placeholder.com/300x180?text=Câmera+Compacta" alt="Câmera Compacta" />
+    <img src="https://via.placeholder.com/300x160?text=Câmera+Compacta" alt="Câmera Compacta" />
     <div class="product-info">
       <div class="product-title">Câmera Compacta 12MP Zoom 10x</div>
-      <div style="display:flex; align-items:center;">
+      <div class="price-row">
         <div class="product-price">R$ 899,90</div>
         <div class="product-old-price">R$ 1.099,90</div>
         <div class="discount">18% OFF</div>
@@ -208,10 +251,10 @@
   </article>
 
   <article class="product" tabindex="0">
-    <img src="https://via.placeholder.com/300x180?text=GoPro+HERO" alt="GoPro HERO" />
+    <img src="https://via.placeholder.com/300x160?text=GoPro+HERO" alt="GoPro HERO" />
     <div class="product-info">
       <div class="product-title">GoPro HERO 10 Black 5K</div>
-      <div style="display:flex; align-items:center;">
+      <div class="price-row">
         <div class="product-price">R$ 2.799,00</div>
         <div class="product-old-price">R$ 3.099,00</div>
         <div class="discount">10% OFF</div>
